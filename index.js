@@ -5,10 +5,14 @@ const port = 3000;  // set the port at 3000
 // ------ build access to the database
 const { Client } = require("pg"); // find the pg sql
 const client = new Client({ // create a pgsql client 
-    database: "todolist", // look for a database called todolist
+    // database: "todolist", // look for a database called todolist
+    connectionString: process.env.DATABASE_URL, // to put the project in Heroku, link the api to the PostgreSQL
+    ssl: true,
 });
 client.connect();
 //-------------
+
+
 
 app.use('*', (req, res, next) => {
     res.header('access-control-allow-origin', '*'); // To allow JavaScript from any website to use this API
