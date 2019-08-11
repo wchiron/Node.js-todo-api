@@ -1,6 +1,6 @@
 const express = require("express");// express is to make an http server, this line import an library
 const app = express(); //create a new express server
-const port = 3000;  // set the port at 3000
+// const port = 3000;  // set the port at 3000
 
 // ------ build access to the database
 const { Client } = require("pg"); // find the pg sql
@@ -58,4 +58,4 @@ app.patch('/todo/:itemID', (req, res) => {
 
 
 
-app.listen(port,() => console.log('Example, app started')); // this line make the api listen to the port 3000
+app.listen(process.env.PORT,() => console.log('Example, app started')); // this line make the api listen to the port 3000
